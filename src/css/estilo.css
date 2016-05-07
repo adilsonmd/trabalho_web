@@ -17,3 +17,7 @@ input[type="submit"] {
 table {
     border: 1px solid transparent;
 }
+
+td {
+    padding-right: 8px;
+}

@@ -12,7 +12,6 @@
         <h1>Listar funcionários</h1>
         <?php
 		//session_start();
-
         $azureServer = "br-cdbr-azure-south-b.cloudapp.net";
         $azureUser = "be848e08403198";
         $azurePass = "59847d85";
@@ -22,7 +21,7 @@
 		if($conecta) {
 			$banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: ' . mysql_error());;
 
-			$txt = "SELECT nm_func, email_func, tel_func FROM tb_emp;";
+			$txt = "SELECT cd_func, nm_func, email_func, tel_func FROM tb_emp;";
 
 			$query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
 
@@ -31,12 +30,18 @@
                 echo "Ao invés disso, <a href='incluir.php'>Cadastrar funcionário</a>";
             }
             else {
+                function excluir($cod) {
+                    $txt = "DELETE FROM tb_emp; where cd_func = $cod";
+                    $del = mysql_query($txt, $conecta);
+                }
+                
                 echo '<table><tr><th>Nome</th><th>Email</th><th>Telefone</th></tr>';
                 while($row = mysql_fetch_assoc($query))
                 {
                     echo '<tr><td>'.$row['nm_func'] . '</td>';
                     echo '<td>'.$row['email_func'].'</td>';
-                    echo '<td>'.$row['tel_func'].'</td></tr>';
+                    echo '<td>'.$row['tel_func'].'</td>'
+                    echo '<td><button onclick="excluir('.$row['cd_func'].');">Excluir</button><td></tr>';
                                     
                 }
                 echo '</table>';
