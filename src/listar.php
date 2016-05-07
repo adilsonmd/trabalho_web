@@ -35,7 +35,7 @@
                 while($row = mysql_fetch_assoc($query))
                 {
                     echo '<tr><td>'.$row['nm_func'] . '</td>';
-                    echo '<td>'.$row['email_func'].'<td>';
+                    echo '<td>'.$row['email_func'].'</td>';
                     echo '<td>'.$row['tel_func'].'</td></tr>';
                                     
                 }
