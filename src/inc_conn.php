@@ -7,7 +7,7 @@
 
 	<body>
 	<ul>
-		<li><a href="incluir.html">Incluir funcionário</li>
+		<li><a href="incluir.php">Incluir funcionário</a></li>
 		<li>Listar funcionário</li>
 		<li>Alterar funcionário</li>
 		<li>Deletar funcionário</li>
