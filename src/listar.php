@@ -31,7 +31,7 @@
                 echo "Ao invés disso, <a href='incluir.php'>Cadastrar funcionário</a>";
             }
             else {
-                echo '<table><th><td>Nome</td><td>Email</td><td>Telefone</td></th>';
+                echo '<table><tr><th>Nome</th><th>Email</th><th>Telefone</th></tr>';
                 while($row = mysql_fetch_assoc($query))
                 {
                     echo '<tr><td>'.$row['nm_func'] . '</td>';
