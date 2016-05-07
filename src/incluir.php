@@ -10,7 +10,7 @@
 
 	<div align="center">
         <h1>Cadastrar funcionário</h1>
-		<form method="POST">
+		<form method="POST" action="_self">
 			<input type="text" name="txtLogin" placeholder="Nome do funcionário" /> <br>
             <input type="text" name="txtEmail" placeholder="Email do funcionário" /> <br>
             <input type="text" name="txtTel" placeholder="Telefone do funcionário" /> <br>
