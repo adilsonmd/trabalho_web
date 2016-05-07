@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
+        <meta charset="UTF-8">
 		<title>Login</title>
+        <link type="text/css" rel="stylesheet" href="css/estilo.css";
 	</head>
 
 	<body>
