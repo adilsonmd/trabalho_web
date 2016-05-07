@@ -16,7 +16,7 @@
 
 			$query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
 
-            if(mysql_num_rows($query) == 0){
+            if(mysql_num_rows($query) <= 0){
                 echo "Nao foi possivel logar<br>";
                 echo "<a href='login.php'>Tentar novamente</a>";
             }
