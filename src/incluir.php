@@ -14,7 +14,7 @@
 			<input type="text" name="txtLogin" placeholder="Nome do funcionário" /> <br>
             <input type="text" name="txtEmail" placeholder="Email do funcionário" /> <br>
             <input type="text" name="txtTel" placeholder="Telefone do funcionário" /> <br>
-			<input id="senhaInput" type="password" name="txtPass" placeholder="Senha do funcionário" /> <br>
+			<input id="senhaInput" type="password" name="txtSenha" placeholder="Senha do funcionário" /> <br>
             
 			<input type="submit" value="Entrar" />
 			<br>
@@ -24,7 +24,7 @@
     <?php
 		//session_start();
 		$nome = $_POST['txtLogin'];
-		$email = $_POST['txtSenha'];
+		$email = $_POST['txtEmail'];
         $tel = $_POST['txtTel'];
         $pass = $_POST['txtSenha'];
         

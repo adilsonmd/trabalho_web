@@ -13,7 +13,7 @@
 		<form method="POST" action="home.php">
 			<input type="text" name="txtLogin" placeholder="Nome de usuário" /> <br>
 
-			<input type="password" name="txtPass" placeholder="Senha" /> <br>
+			<input type="password" name="txtSenha" placeholder="Senha" /> <br>
 
 			<input type="submit" value="Entrar" />
 			<br>
