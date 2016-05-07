@@ -42,7 +42,7 @@
 
 			$query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
 
-            if($query){
+            if(mysql_affected_rows > 0){
                 echo "<h3>Cadastro realizado</h3>";
                 echo '$query';
             }
