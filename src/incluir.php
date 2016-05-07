@@ -24,18 +24,20 @@
 
             if($conecta) {
                 $banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: ' . mysql_error());;
+                
+                if($nome != "" || $email != "" || $tel != "" || $pass != "") {
+                    $txt = "INSERT INTO tb_emp (nm_func, email_func, tel_func, senha_func) ".
+                        "VALUES ('$nome', '$email', '$tel', '$pass');";
 
-                $txt = "INSERT INTO tb_emp (nm_func, email_func, tel_func, senha_func) ".
-                    "VALUES ('$nome', '$email', '$tel', '$pass');";
+                    $query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
 
-                $query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
+                    if(mysql_affected_rows > 0){
+                        echo "<h3>Cadastro realizado</h3>";
+                        echo '$query';
+                    }
 
-                if(mysql_affected_rows > 0){
-                    echo "<h3>Cadastro realizado</h3>";
-                    echo '$query';
+                    mysql_free_result($query);
                 }
-
-                mysql_free_result($query);
             }
 
             mysql_close($conecta);
