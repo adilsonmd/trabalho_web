@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8"/>
 		<title>Incluir funcionário - RH</title>
-        <link type="text/css" rel="stylesheet" href="css/estilo.css";
+        <link type="text/css" rel="stylesheet" href="css/estilo.css" />
 	</head>
 
 	<body>

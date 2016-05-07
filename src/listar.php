@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
 		<title>Listar funcionários - RH</title>
-        <link type="text/css" rel="stylesheet" href="css/estilo.css";
+        <link type="text/css" rel="stylesheet" href="css/estilo.css" />
 	</head>
 
 	<body>
@@ -22,7 +22,7 @@
 		if($conecta) {
 			$banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: ' . mysql_error());;
 
-			$txt = "SELECT nm_func, email_func, tel_func, senha_func FROM tb_emp;";
+			$txt = "SELECT nm_func, email_func, tel_func FROM tb_emp;";
 
 			$query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
 
@@ -31,7 +31,15 @@
                 echo "Ao invés disso, <a href='incluir.php'>Cadastrar funcionário</a>";
             }
             else {
-                while()
+                echo '<table><th><td>Nome</td><td>Email</td><td>Telefone</td></th>';
+                while($row = mysql_fetch_assoc($query))
+                {
+                    echo '<tr><td>'.$row['nm_func'] . '</td>';
+                    echo '<td>'.$row['email_func'].'<td>';
+                    echo '<td>'.$row['tel_func'].'</td></tr>';
+                                    
+                }
+                echo '</table>';
             }
 
 			mysql_free_result($query);
