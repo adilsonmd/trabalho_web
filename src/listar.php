@@ -10,6 +10,7 @@ function debug_to_console( $data ) {
     echo $output;
 }
 //-----------
+include("inc_conn.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,8 +25,7 @@ function debug_to_console( $data ) {
 	<div align="center">
         <h1>Listar funcionários</h1>
         <?php
-        
-        include("inc_conn.php");
+                
         $azureServer = "br-cdbr-azure-south-b.cloudapp.net";
         $azureUser = "be848e08403198";
         $azurePass = "59847d85";
