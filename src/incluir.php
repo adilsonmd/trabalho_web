@@ -8,7 +8,7 @@
 
 	<body>
     <?php
-    
+    include("inc_conn.php");
         function incluir() {
             //session_start();
             $nome = $_POST['txtLogin'];

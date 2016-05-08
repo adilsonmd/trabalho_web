@@ -24,7 +24,8 @@ function debug_to_console( $data ) {
 	<div align="center">
         <h1>Listar funcionários</h1>
         <?php
-		//session_start();
+        
+        include("inc_conn.php");
         $azureServer = "br-cdbr-azure-south-b.cloudapp.net";
         $azureUser = "be848e08403198";
         $azurePass = "59847d85";
@@ -43,11 +44,14 @@ function debug_to_console( $data ) {
             }
             
             else {  
-                echo '<form method="POST" action="" onsubmit="'excluir($row['cd_func']);
-
-                echo '">';              
-                echo '<table><tr><th>Nome</th><th>Email</th><th>Telefone</th></tr>';
-                
+                ?>
+                <form method="POST" action="" onsubmit="<?php excluir($row['cd_func'])?>">
+                <table>
+                    <tr><th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                    </tr>
+                <?php
                 while($row = mysql_fetch_assoc($query))
                 {
                     
