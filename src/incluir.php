@@ -31,7 +31,7 @@
 
                     $query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
 
-                    if(mysql_affected_rows > 0){
+                    if(mysql_affected_rows > 0) {
                         echo "<h3>Cadastro realizado</h3>";
                         echo '$query';
                     }
@@ -41,6 +41,7 @@
             }
 
             mysql_close($conecta);
+           
         }
 	?>
     
@@ -55,6 +56,8 @@
 			<input type="submit" value="Entrar" />
 			<br>
 		</form>
+        <br>
+        <p><a href="home.php">Retornar</a></p>
 	</div>
     
 

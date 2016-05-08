@@ -52,6 +52,7 @@
 
         mysql_close($conecta);
 	?>
+    <p><a href="home.php">Retornar</a></p>
 	</div>
 
 	</body>
