@@ -10,8 +10,9 @@ function debug_to_console( $data ) {
     echo $output;
 }
 //-----------
-include("inc_conn.php");
+    include("inc_conn.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -35,7 +36,7 @@ include("inc_conn.php");
         if($conecta) {
             $banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: '. mysql_error());
                
-            $txt = "SELECT * FROM tb_emp;";
+            $txt = "SELECT nm_func, email_func, tel_func FROM tb_emp;";
             $query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
             
             if(mysql_num_rows($query) <= 0){
@@ -45,7 +46,6 @@ include("inc_conn.php");
             
             else {  
                 ?>
-                <form method="POST" action="" onsubmit="<?php excluir($row['cd_func'])?>">
                 <table>
                     <tr><th>Nome</th>
                         <th>Email</th>
@@ -54,25 +54,15 @@ include("inc_conn.php");
                 <?php
                 while($row = mysql_fetch_assoc($query))
                 {
-                    
                     echo '<tr><td>' .$row['nm_func']. '</td>';
                     echo '<td>' .$row['email_func']. '</td>';
                     echo '<td>' .$row['tel_func']. '</td>';
-                    echo '<td><input type="submit" id="'.$row["cd_func"].'" value="Excluir />';
-                        
-                    echo '<td></tr>';
-                                    
+                    echo '</tr>';                   
                 }
                 echo '</table>';
                 echo '</form>';
             }
             mysql_free_result($query);
-            
-            function excluir($cod) {
-                $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod;
-                $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
-                debug_to_console($del);
-            }
         }
         mysql_close($conecta);
 	   ?>
