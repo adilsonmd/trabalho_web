@@ -52,7 +52,7 @@ function debug_to_console( $data ) {
                     echo '<tr><td>' .$row['nm_func']. '</td>';
                     echo '<td>' .$row['email_func']. '</td>';
                     echo '<td>' .$row['tel_func']. '</td>';
-                    echo '<td><button onclick=" excluir(' .$row['cd_func']. ');">Excluir</button><td></tr>';
+                    echo '<td><button onclick="'.excluir($row["cd_func"]);.'">Excluir</button><td></tr>';
                                     
                 }
                 echo '</table>';
