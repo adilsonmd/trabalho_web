@@ -47,10 +47,10 @@
                 echo '</table>';
             }
 
-			mysql_free_result($query);
-		}
+            mysql_free_result($query);
+        }
 
-		mysql_close($conecta);
+        mysql_close($conecta);
 	?>
 	</div>
 
