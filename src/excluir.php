@@ -1,5 +1,8 @@
 <html>
-
+    <head>
+        <meta charset="UTF-8" />
+        <title>Excluir funcionários - RH</title>
+    </head>
     <body>
         <form method="POST" onsubmit="<?php
            
