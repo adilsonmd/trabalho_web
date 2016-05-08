@@ -43,31 +43,31 @@ function debug_to_console( $data ) {
             }
             else {                
                 echo '<table><tr><th>Nome</th><th>Email</th><th>Telefone</th></tr>';
+                
+                //quando clicar no botão excluir, chama essa função
+                function excluir($cod) {
+                    $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod;
+                    $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
+                    debug_to_console($del);    
+                }
+        
                 while($row = mysql_fetch_assoc($query))
                 {
                     echo '<tr><td>' .$row['nm_func']. '</td>';
                     echo '<td>' .$row['email_func']. '</td>';
                     echo '<td>' .$row['tel_func']. '</td>';
-                    echo '<td><button onclick="'.excluir($row["cd_func"]).'">Excluir</button><td></tr>';
+                    echo '<td><button onclick="'.excluir($row['cd_func']).'">Excluir</button><td></tr>';
                                     
                 }
                 echo '</table>';
             }
-
             mysql_free_result($query);
         }
-
-        
-        //quando clicar no botão excluir, chama essa função
-        function excluir($cod) {
-            $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod;
-            $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
-            debug_to_console($del);    
-        }
         mysql_close($conecta);
-	?>
-    <p><a href="home.php">Retornar</a></p>
-	</div>
+	   ?>
+    
+        <p><a href="home.php">Retornar</a></p>
+	   </div>
 
 	</body>
 </html>
