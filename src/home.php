@@ -7,7 +7,7 @@
 
 	<body>
 	<?php
-		include("php/conecta.php");
+		include("conecta.php");
 		include("inc_conn.php");
 	?>
 	</body>
