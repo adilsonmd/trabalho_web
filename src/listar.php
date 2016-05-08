@@ -1,4 +1,5 @@
 <?php 
+//essa função é só pra testes, pra saber quais erros estavam ocorrendo
 function debug_to_console( $data ) {
 
     if ( is_array( $data ) )
@@ -8,6 +9,7 @@ function debug_to_console( $data ) {
 
     echo $output;
 }
+//-----------
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -55,13 +57,14 @@ function debug_to_console( $data ) {
             mysql_free_result($query);
         }
 
-        mysql_close($conecta);
         
+        //quando clicar no botão excluir, chama essa função
         function excluir($cod) {
             $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod;
             $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
             debug_to_console($del);    
         }
+        mysql_close($conecta);
 	?>
     <p><a href="home.php">Retornar</a></p>
 	</div>
