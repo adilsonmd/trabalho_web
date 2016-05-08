@@ -27,24 +27,20 @@ function debug_to_console( $data ) {
         $azureUser = "be848e08403198";
         $azurePass = "59847d85";
         
-		$conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: '. mysql_error());
+		$conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: '. mysql_error());      
         
-
-        
-		if($conecta) {
-			$banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: '. mysql_error());
+        if($conecta) {
+            $banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: '. mysql_error());
             
             function excluir($cod) {
-                $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod;
+                $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod.";";
                 $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
-                debug_to_console($del);
-                
+                debug_to_console($del);    
             }
+               
+            $txt = "SELECT * FROM tb_emp;";
+            $query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
             
-			$txt = "SELECT * FROM tb_emp;";
-
-			$query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
-
             if(mysql_num_rows($query) <= 0){
                 echo "<h3>Funcionários não encontrados</h3><br>";
                 echo "Ao invés disso, <a href='incluir.php'>Cadastrar funcionário</a>";
