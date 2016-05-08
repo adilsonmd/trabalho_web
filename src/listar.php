@@ -17,11 +17,16 @@
         $azurePass = "59847d85";
         
 		$conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: ' . mysql_error());
-
+        
+        function excluir($cod) {
+            $cmd = "DELETE FROM tb_emp where cd_func = $cod";
+            $del = mysql_query($cmd, $conecta) or die ('Erro na query: '.mysql_error());
+        }
+        
 		if($conecta) {
 			$banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: ' . mysql_error());;
 
-			$txt = "SELECT cd_func, nm_func, email_func, tel_func FROM tb_emp;";
+			$txt = "SELECT * FROM tb_emp;";
 
 			$query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
 
@@ -30,10 +35,7 @@
                 echo "Ao invés disso, <a href='incluir.php'>Cadastrar funcionário</a>";
             }
             else {
-                function excluir($cod) {
-                    $txt = "DELETE FROM tb_emp; where cd_func = $cod";
-                    $del = mysql_query($txt, $conecta);
-                }
+                
                 
                 echo '<table><tr><th>Nome</th><th>Email</th><th>Telefone</th></tr>';
                 while($row = mysql_fetch_assoc($query))

@@ -33,7 +33,7 @@
 
                     if(mysql_affected_rows > 0) {
                         echo "<h3>Cadastro realizado</h3>";
-                        echo '$query';
+                        echo $query;
                     }
 
                     mysql_free_result($query);
