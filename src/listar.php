@@ -18,14 +18,16 @@
         
 		$conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: '. mysql_error());
         
-        function excluir($cod) {
-            $cmd = "DELETE FROM tb_emp WHERE cd_func = ".$cod;
-            $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
-        }
+
         
 		if($conecta) {
-			$banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: '. mysql_error());;
-
+			$banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: '. mysql_error());
+            
+            function excluir($cod) {
+                $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod;
+                $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
+            }
+            
 			$txt = "SELECT * FROM tb_emp;";
 
 			$query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
