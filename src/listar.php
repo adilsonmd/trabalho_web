@@ -1,3 +1,14 @@
+<?php 
+function debug_to_console( $data ) {
+
+    if ( is_array( $data ) )
+        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
+    else
+        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+
+    echo $output;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -26,6 +37,8 @@
             function excluir($cod) {
                 $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod;
                 $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
+                debug_to_console($del);
+                
             }
             
 			$txt = "SELECT * FROM tb_emp;";
@@ -43,7 +56,7 @@
                     echo '<tr><td>' .$row['nm_func']. '</td>';
                     echo '<td>' .$row['email_func']. '</td>';
                     echo '<td>' .$row['tel_func']. '</td>';
-                    echo '<td><button onclick="excluir(' .$row['cd_func']. ');">Excluir</button><td></tr>';
+                    echo '<td><button onclick=" excluir(' .$row['cd_func']. ');">Excluir</button><td></tr>';
                                     
                 }
                 echo '</table>';
