@@ -16,15 +16,15 @@
         $azureUser = "be848e08403198";
         $azurePass = "59847d85";
         
-		$conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: ' . mysql_error());
+		$conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: '. mysql_error());
         
         function excluir($cod) {
             $cmd = "DELETE FROM tb_emp where cd_func = $cod";
-            $del = mysql_query($cmd, $conecta) or die ('Erro na query: '.mysql_error());
+            $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
         }
         
 		if($conecta) {
-			$banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: ' . mysql_error());;
+			$banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: '. mysql_error());;
 
 			$txt = "SELECT * FROM tb_emp;";
 
@@ -34,16 +34,14 @@
                 echo "<h3>Funcionários não encontrados</h3><br>";
                 echo "Ao invés disso, <a href='incluir.php'>Cadastrar funcionário</a>";
             }
-            else {
-                
-                
+            else {                
                 echo '<table><tr><th>Nome</th><th>Email</th><th>Telefone</th></tr>';
                 while($row = mysql_fetch_assoc($query))
                 {
-                    echo '<tr><td>'.$row['nm_func'] . '</td>';
-                    echo '<td>'.$row['email_func'].'</td>';
-                    echo '<td>'.$row['tel_func'].'</td>'
-                    echo '<td><button onclick="excluir('.$row['cd_func'].');">Excluir</button><td></tr>';
+                    echo '<tr><td>' .$row['nm_func']. '</td>';
+                    echo '<td>' .$row['email_func']. '</td>';
+                    echo '<td>' .$row['tel_func']. '</td>';
+                    echo '<td><button onclick="excluir(' .$row['cd_func']. ');">Excluir</button><td></tr>';
                                     
                 }
                 echo '</table>';
