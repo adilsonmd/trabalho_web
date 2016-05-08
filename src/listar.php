@@ -19,7 +19,7 @@
 		$conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: '. mysql_error());
         
         function excluir($cod) {
-            $cmd = "DELETE FROM tb_emp where cd_func = $cod";
+            $cmd = "DELETE FROM tb_emp WHERE cd_func = ".$cod;
             $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
         }
         

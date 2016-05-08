@@ -9,7 +9,7 @@
 	<body>
     <?php
     
-        function cadastrar() {
+        function incluir() {
             //session_start();
             $nome = $_POST['txtLogin'];
             $email = $_POST['txtEmail'];
@@ -46,14 +46,14 @@
 	?>
     
 	<div align="center">
-        <h1>Cadastrar funcionário</h1>
-		<form method="POST" action="" onsubmit="<?php cadastrar(); ?>">
+        <h1>Incluir funcionário</h1>
+		<form method="POST" action="" onsubmit="<?php incluir(); ?>">
 			<input type="text" name="txtLogin" placeholder="Nome do funcionário" /> <br>
             <input type="text" name="txtEmail" placeholder="Email do funcionário" /> <br>
             <input type="text" name="txtTel" placeholder="Telefone do funcionário" /> <br>
 			<input id="senhaInput" type="password" name="txtSenha" placeholder="Senha do funcionário" /> <br>
             
-			<input type="submit" value="Entrar" />
+			<input type="submit" value="Incluir" />
 			<br>
 		</form>
         <br>
