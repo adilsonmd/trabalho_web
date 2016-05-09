@@ -34,8 +34,7 @@
             }
             
             else {  
-                ?>
-                <form method="POST" action="excluir.php">
+            ?>
                 <table>
                     <tr><th>Cod</th>
                         <th>Nome</th>
@@ -52,11 +51,13 @@
                     echo '<td>' .$row['tel_func']. '</td>';
                     echo '</tr>';                   
                 }
-                echo '</table>';
-                ?>
-                <input type="text" name="txtCod" placeholder="Código funcionários" /> <br>
-                <input type="submit" name="btnExcluir" value="Excluir" />
+            }
+        ?>
+                </table>
                 
+                <form method="POST" action="excluir.php">
+                    <input type="text" name="txtCod" placeholder="Código funcionários" /> <br>
+                    <input type="submit" name="btnExcluir" value="Excluir" />
                 </form>
                 <?php
             }

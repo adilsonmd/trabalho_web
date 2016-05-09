@@ -17,7 +17,7 @@
             if($conecta) {
                 $banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: '. mysql_error());  
             
-                $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod;
+                $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod . ";";
                 $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
                 
                 if(mysql_affected_rows($del) <= 0){
