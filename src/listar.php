@@ -34,18 +34,8 @@
             }
             
             else {  
-                function funcao() 
-                {
-                    $cmd = "DELETE FROM tb_emp WHERE cd_func = ".$_POST['txtCod'].";"; 
-                    $excluir = mysql_query($cmd, $conecta) or die ('Não foi possivel executar a query excluir: '.mysql_error());
-                    
-                    if(mysql_affected_rows <= 0)
-                        echo '<p color="red">Não foi possível excluir</p>';
-                    else 
-                        echo '<p color="green">Cadastro excluido</p>';
-                }
                 ?>
-                <form method="POST" action="" onsubmit="<?php funcao(); ?>">
+                <form method="POST" action="">
                 <table>
                     <tr><th>Nome</th>
                         <th>Email</th>
