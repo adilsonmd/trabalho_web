@@ -51,7 +51,6 @@
                     echo '<td>' .$row['tel_func']. '</td>';
                     echo '</tr>';                   
                 }
-            }
         ?>
                 </table>
                 
