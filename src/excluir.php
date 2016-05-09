@@ -4,12 +4,14 @@
         <title>Excluir funcionários - RH</title>
     </head>
     <body>
-        <form method="POST" onsubmit="<?php
+        <div align="center">
+            <?php
            
             $azureServer = "br-cdbr-azure-south-b.cloudapp.net";
             $azureUser = "be848e08403198";
             $azurePass = "59847d85";
-        
+            
+            $cod = $_POST['txtCod'];
 		    $conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: '. mysql_error());      
         
             if($conecta) {
@@ -17,11 +19,16 @@
             
                 $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod;
                 $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
-                debug_to_console($del);  //para encontrar erros escondidos  
-            }
-        ?>">
-        
-        <input type="submit" value="Excluir"
-        </form>
+                
+                if(mysql_affected_rows <= 0){
+                    echo '<p color="red">Não foi possível excluir</p>';
+                    echo '<a href="listar.php">Retornar</a>';
+                }
+                else {
+                    echo '<p color="red">Cadastro do funcionário excluído</p>';
+                    echo '<a href="listar.php">Retornar</a>';
+                }
+        ?>
+        </div>
     </body>
 </html>

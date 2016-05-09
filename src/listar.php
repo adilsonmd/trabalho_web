@@ -35,9 +35,9 @@
             
             else {  
                 ?>
-                <form method="POST" action="">
+                <form method="POST" action="excluir.php">
                 <table>
-                    <tr><th>código</th>
+                    <tr><th>Cod</th>
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Telefone</th>
@@ -55,7 +55,7 @@
                 echo '</table>';
                 ?>
                 <input type="text" name="txtCod" placeholder="Código funcionários" /> <br>
-                <input type="submit" name="btnExecutar" value="Excluir" />
+                <input type="submit" name="btnExcluir" value="Excluir" />
                 
                 </form>
                 <?php
