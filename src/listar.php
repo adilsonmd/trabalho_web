@@ -37,7 +37,8 @@
                 ?>
                 <form method="POST" action="">
                 <table>
-                    <tr><th>Nome</th>
+                    <tr><th>código</th>
+                        <th>Nome</th>
                         <th>Email</th>
                         <th>Telefone</th>
                     </tr>
@@ -46,8 +47,8 @@
                 while($row = mysql_fetch_assoc($query))
                 {
                     echo '<tr><td>' .$row['cd_func']. '</td>';
+                    echo '<td>' .$row['nm_func']. '</td>';
                     echo '<td>' .$row['email_func']. '</td>';
-                    echo '<td>' .$row['tel_func']. '</td>';
                     echo '<td>' .$row['tel_func']. '</td>';
                     echo '</tr>';                   
                 }
