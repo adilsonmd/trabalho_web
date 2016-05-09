@@ -20,7 +20,7 @@
                 $cmd = "DELETE FROM tb_emp WHERE cd_func = ". $cod . ";";
                 $del = mysql_query($cmd, $conecta) or die ('Erro na query excluir: '. mysql_error());
                 
-                if(mysql_affected_rows($del) <= 0){
+                if(mysql_affected_rows($del) > 0){
                     echo '<p color="red">Não foi possível excluir</p>';
                     echo '<a href="listar.php">Retornar</a>';
                 }
