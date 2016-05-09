@@ -1,5 +1,4 @@
-<?php 
-
+<?php     
     include("inc_conn.php");
 ?>
 
@@ -26,7 +25,7 @@
         if($conecta) {
             $banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: '. mysql_error());
                
-            $txt = "SELECT nm_func, email_func, tel_func FROM tb_emp;";
+            $txt = "SELECT * FROM tb_emp;";
             $query = mysql_query ($txt, $conecta) or die ('Não foi possivel realizar query: '. mysql_error());
             
             if(mysql_num_rows($query) <= 0){
@@ -35,22 +34,40 @@
             }
             
             else {  
+                function funcao() 
+                {
+                    $cmd = "DELETE FROM tb_emp WHERE cd_func = ".$_POST['txtCod'].";"; 
+                    $excluir = mysql_query($cmd, $conecta) or die ('Não foi possivel executar a query excluir: '.mysql_error());
+                    
+                    if(mysql_affected_rows <= 0)
+                        echo '<p color="red">Não foi possível excluir</p>';
+                    else 
+                        echo '<p color="green">Cadastro excluido</p>';
+                }
                 ?>
+                <form method="POST" action="" onsubmit="<?php funcao(); ?>">
                 <table>
                     <tr><th>Nome</th>
                         <th>Email</th>
                         <th>Telefone</th>
                     </tr>
+                    
                 <?php
                 while($row = mysql_fetch_assoc($query))
                 {
-                    echo '<tr><td>' .$row['nm_func']. '</td>';
+                    echo '<tr><td>' .$row['cd_func']. '</td>';
                     echo '<td>' .$row['email_func']. '</td>';
+                    echo '<td>' .$row['tel_func']. '</td>';
                     echo '<td>' .$row['tel_func']. '</td>';
                     echo '</tr>';                   
                 }
                 echo '</table>';
-                echo '</form>';
+                ?>
+                <input type="text" name="txtCod" placeholder="Código funcionários" /> <br>
+                <input type="submit" name="btnExecutar" value="Excluir" />
+                
+                </form>
+                <?php
             }
             mysql_free_result($query);
         }
