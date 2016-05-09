@@ -12,7 +12,7 @@
             $azurePass = "59847d85";
             
             $cod = $_POST['txtCod'];
-		    $conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: '. mysql_error());      
+            $conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: '. mysql_error());      
         
             if($conecta) {
                 $banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: '. mysql_error());  
@@ -28,6 +28,7 @@
                     echo '<p color="red">Cadastro do funcionário excluído</p>';
                     echo '<a href="listar.php">Retornar</a>';
                 }
+            }
         ?>
         </div>
     </body>
