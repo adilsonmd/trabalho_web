@@ -23,7 +23,7 @@
             $conecta = mysql_connect($azureServer, $azureUser, $azurePass) or die ('Não foi possível conectar: ' . mysql_error());
 
             if($conecta) {
-                $banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: ' . mysql_error());;
+                $banco = mysql_select_db("bd_rh", $conecta) or die ('Não foi possível selecionar o banco: ' . mysql_error());
                 
                 if($nome != "" || $email != "" || $tel != "" || $pass != "") {
                     $txt = "INSERT INTO tb_emp (nm_func, email_func, tel_func, senha_func) ".
